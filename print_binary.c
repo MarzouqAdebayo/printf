@@ -1,5 +1,5 @@
 #include "main.h"
-#include "math.h"
+#include <math.h>
 
 /**
  * print_binary - Prints a number in base 2
