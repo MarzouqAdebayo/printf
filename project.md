@@ -5,9 +5,12 @@
  - **main.h** - Contains all structures declaration and function prototypes
  - **_putchar.c** - This function mimics the `putchar` function of the stdio library.
  - **print_string.c** - This file takes strings and prints them to stdout using `_putchar` function from `_putchar.c`
+ - **print_digit.c** - Contains function `print_digit` which prints a natural number to stdout and returns the length of the digit.
 
 ## To-Do
 ### Task 0
 #### N:B - If a to-do is done, kindly delete it from this list. Also, add to the list if there is a task to do.
 
  1. Take care of edge cases such as `"% s"`  or passing a specifier without an argument.
+
+## Completed
