@@ -12,6 +12,6 @@ int _putchar(char c);
 /* Funtions to print chars and strings */
 int print_char(int c);
 int print_string(char *s);
-int print_digit(int n);
+int print_decimal(int n);
 
 #endif /* MAIN_H */

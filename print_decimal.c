@@ -3,12 +3,13 @@
 /**
  * print_positive_number - Body of the function
  * @n: The argument n to be printed
+ * @ptr: Pointer the length of the string
  *
  * Description: Prints numbers using putchar
  * Return: has no return value
  */
 
-void print_positive_number(int n, int * ptr)
+void print_positive_number(int n, int *ptr)
 {
 	if (n < 1)
 		return;
@@ -18,13 +19,13 @@ void print_positive_number(int n, int * ptr)
 }
 
 /**
- * print_number - Body of the function
+ * print_decimal - Body of the function
  * @n: The argument n to be printed
  *
  * Description: Prints numbers using putchar
  * Return: has no return value
  */
-int print_digit(int n)
+int print_decimal(int n)
 {
 	int len = 0;
 	int *ptr = &len;
