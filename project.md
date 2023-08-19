@@ -7,6 +7,9 @@
  - **print_string.c** - This file takes strings and prints them to stdout using `_putchar` function from `_putchar.c`. It also returns the length of the string
  - **print_digit.c** - Contains function `print_digit` which prints a natural number to stdout and returns the length of the digit.
 
+ ### Run the code using the following
+ ### `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c testing/main.c`
+
 ## Catch-up
  1. Added functionality for format specifiers for %c, %s, %%, %d and %i.
 
