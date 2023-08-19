@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if ('a' <= format[i + 1] && format[i + 1] <= 'z')
+			if (('a' <= format[i + 1] && format[i + 1] <= 'z') || format[i + 1] == '%')
 			{
 				switch (format[i + 1])
 				{
@@ -35,6 +35,8 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					word = va_arg(args, char *);
+					if (!word)
+						return (-1);
 					len += print_string(word);
 					i += 2;
 					break;
@@ -51,8 +53,13 @@ int _printf(const char *format, ...)
 					len += print_decimal(va_arg(args, int));
 					i += 2;
 					break;
+				case 'b':
+					len += print_binary(va_arg(args, int));
+					i += 2;
+					break;
 				}
-			} else
+			}
+			else
 				return (-1);
 		}
 		else
