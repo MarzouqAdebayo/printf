@@ -8,7 +8,7 @@
  - **print_digit.c** - Contains function `print_digit` which prints a natural number to stdout and returns the length of the digit.
 
 ## Catch-up
- 1. Added functionality for format specifiers for %c, %s, %%, %d.
+ 1. Added functionality for format specifiers for %c, %s, %%, %d and %i.
 
 ## To-Do
 ### Task 0

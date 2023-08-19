@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 					i += 2;
 					break;
 				case 'i':
-					len += print_digit(va_arg(args, int));
+					len += print_decimal(va_arg(args, int));
 					i += 2;
 					break;
 				}
