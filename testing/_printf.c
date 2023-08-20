@@ -17,7 +17,7 @@ int _printf(const char * const format, ...)
 	convert_identify p[] = {
     		{"%i", printf_intiger}, {"%d", printf_decimal}, {"%r", printf_srev},		
   	  	{"%s", printf_string}, {"%c", printf_char},
-		{"%%", printf_%},
+		{"%%", printf_num},
 		{"%R", printf_rot13}, {"%b", printf_binary}, {"%u", printf_unsigned},
 		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
 		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
