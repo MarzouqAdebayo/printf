@@ -1,82 +1,45 @@
 #include "main.h"
-
-void dummy(void);
-
 /**
- * _printf - mimics the printf function from stdio library
- * @format:  String with/without specifiers. The format string is composed of
- *  zero or more directives
- *
- * Return: int - length of the string
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	unsigned int i = 0, len = 0;
-	char *word;
-	va_list args;
+	convert_match m[] = {
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
+	};
 
-	if (!format)
-		return (-1);
+	va_list args;
+	int i = 0, j, len = 0;
 
 	va_start(args, format);
-	while (format[i])
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
+Here:
+	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		j = 13;
+		while (j >= 0)
 		{
-			if (('a' <= format[i + 1] && format[i + 1] <= 'z') || format[i + 1] == '%')
+			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
 			{
-				switch (format[i + 1])
-				{
-				case 'c':
-					_putchar(va_arg(args, int));
-					len += 1;
-					i += 2;
-					break;
-				case 's':
-					word = va_arg(args, char *);
-					if (!word)
-						return (-1);
-					len += print_string(word);
-					i += 2;
-					break;
-				case '%':
-					_putchar('%');
-					i += 2;
-					len += 1;
-					break;
-				case 'd':
-					len += print_decimal(va_arg(args, int));
-					i += 2;
-					break;
-				case 'i':
-					len += print_decimal(va_arg(args, int));
-					i += 2;
-					break;
-				case 'b':
-					len += print_binary(va_arg(args, int));
-					i += 2;
-					break;
-				}
+				len += m[j].f(args);
+				i = i + 2;
+				goto Here;
 			}
-			else
-				return (-1);
+			j--;
 		}
-		else
-		{
-			_putchar(format[i]);
-			i++;
-			len++;
-		}
+		_putchar(format[i]);
+		len++;
+		i++;
 	}
 	va_end(args);
 	return (len);
-}
-
-/**
- * dummy - to trick betty
- * Return: void
- */
-void dummy(void)
-{
 }
