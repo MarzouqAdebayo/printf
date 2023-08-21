@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * prinf_binary - Prints a number in base 2
+ * print_binary - Prints a number in base 2
  * @n: number to be converted and printed
  *
  * Return: the length of the number
